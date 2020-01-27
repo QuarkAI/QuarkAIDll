@@ -1,0 +1,6 @@
+If the progrom throw the following error message:
+Error: Could not create object named "internetexplorer.application"
+
+Please open the Task Manager and end the task "Internet Explorer", then rerun it.
+
+If it shows the same error message, please uninstall anti-virus program such as 360.
