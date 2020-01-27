@@ -1,0 +1,21 @@
+Dim MyQuarkAI
+Set MyQuarkAI = CreateObject("QuarkAI.dll")
+Dim MyResult
+MyResult = MyQuarkAI.Message("In this lesson, we will learn how desktop operations.", "Lesson 2", 0)
+MyResult = MyQuarkAI.Message("The SimMoveTo can move your mouse to the target position. And the SimLeftClick, SimRightClick, SimLeftDown, SimRightDown, SimLeftUp, SimRightUp can do the corresponding mouse operations. Now let me move you mouse to (0 ,0) then to (100, 100).", "Lesson 2", 0)
+MyResult = MyQuarkAI.SimMoveTo(0, 0)
+MyResult = MyQuarkAI.Delay(1000)
+MyResult = MyQuarkAI.SimMoveTo(100, 100)
+MyResult = MyQuarkAI.Message("The SimKeyPress, SimKeyDown, SimKeyUp, SimKeyPressChar, SimKeyDownChar, SimKeyUpChar functions can simulate keyboard operations. Now let us press the windows key twice", "Lesson 2", 0)
+MyResult = MyQuarkAI.SimKeyPress(91)
+MyResult = MyQuarkAI.Delay(1000)
+MyResult = MyQuarkAI.SimKeyPress(91) 
+MyResult = MyQuarkAI.Delay(1000)
+MyResult = MyQuarkAI.Message("The WaitKeyPress function waits till a given key or any key is pressed. After click yes, please press any key to proceed.", "Lesson 2", 0)
+MyResult = MyQuarkAI.WaitKeyPress(0, 0) 
+MyResult = MyQuarkAI.Message("The GetMousePosition function gives you the current coordinate of the mouse, and the GetMouseColor function gets the color of a given point.", "Lesson 2", 0)
+MyResult = MyQuarkAI.GetMousePosition(MouseX, MouseY)
+MyColor = MyQuarkAI.GetDesktopColor(MouseX, MouseY)
+MyResult = MyQuarkAI.Message("The coordinate of the mouse is ("+cstr(MouseX)+", "+cstr(MouseY)+"), whose color is " + MyColor, "Lesson 2", 0)
+MyResult = MyQuarkAI.Message("This is the end of lesson 2, thank you.", "Lesson 2", 0)
+Set MyQuarkAI = Nothing
