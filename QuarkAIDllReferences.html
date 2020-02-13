@@ -547,7 +547,7 @@ li.L9 {
     margin: 0 auto;
     position: relative;
 }
-.container1 {        max-width: 1000px;
+.container1 {        max-width: 1024px;
         padding: 0 20px;
 }
 </style>
@@ -555,7 +555,7 @@ li.L9 {
 <body>
 <div align="center">
 <nav>
-<div class="container">
+<div class="container" style="width:1024px;">
 <table>
 <tr>
 <td><li><a href="QuarkAIDllIntroductions.html"><b>Introductions</b></a></li></td>
@@ -730,6 +730,13 @@ li.L9 {
     <li><a href="#WheelUp" class=" ">WheelUp</a></li>
 </details>
 <details open>
+<summary><strong>Device control functions</strong></summary>
+    <li><a href="#SetDevice" class=" ">SetDevice</a></li>
+    <li><a href="#BindDevice" class=" ">BindDevice</a></li>
+    <li><a href="#OperateDevice" class=" ">OperateDevice</a></li>
+    <li><a href="#UnBindDevice" class=" ">UnBindDevice</a></li>
+</details>
+<details open>
 <summary><strong>Devloper functions (without developer license)</strong></summary>
     <li><a href="#GetCommandLine" class=" ">GetCommandLine</a></li>
     <li><a href="#ProcessInfo" class=" ">ProcessInfo</a></li>
@@ -742,6 +749,7 @@ li.L9 {
     <li><a href="#FloatToData" class=" ">FloatToData</a></li>
     <li><a href="#DoubleToData" class=" ">DoubleToData</a></li>
     <li><a href="#StringToData" class=" ">StringToData</a></li>
+    <li><a href="#DataToString" class=" ">DataToString</a></li>
     <li><a href="#GetModuleBaseAddr" class=" ">GetModuleBaseAddr</a></li>
 </details>
 <details open>
@@ -1013,21 +1021,21 @@ The color at the given point as a string.
       
 <div id="SimKeyPress"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyPress(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key press to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p>
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyPress(65)</p></ul></pre></div>
 
 <div id="SimKeyPressChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyPressChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key press to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span>
-<span class="Bold"><span class="Green">KeyChar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyChar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyPressChar(&quot;a&quot;)</p></ul></pre></div>
 
 <div id="SimKeyDown"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyDown(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key down to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span>
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyDown(65)
@@ -1036,7 +1044,7 @@ MyResult = MyQuarkAI.SimKeyUp(65)</p></ul></pre></div>
 
 <div id="SimKeyDownChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyDownChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key down to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span>
-<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyDownChar(&quot;a&quot;)
@@ -1045,7 +1053,7 @@ MyResult = MyQuarkAI.SimKeyUpChar(&quot;a&quot;)</p></ul></pre></div>
 
 <div id="SimKeyUp"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyUp(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key up to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span>
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyDown(65)
@@ -1054,7 +1062,7 @@ MyResult = MyQuarkAI.SimKeyUp(65)</p></ul></pre></div>
 
 <div id="SimKeyUpChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SimKeyUpChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key up to the desktop.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span>
-<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SimKeyDownChar(&quot;a&quot;)
@@ -1146,12 +1154,12 @@ The handle of the window as an integer, 0 = no such a window.
 MyHandle2 = MyQuarkAI.FindWindowByProcess(&quot;Process.exe&quot;, &quot;Class&quot;, &quot;&quot;)
 MyHandle3 = MyQuarkAI.FindWindowByProcess(&quot;Process.exe&quot;, &quot;&quot;, &quot;Title&quot;)<span class="Orange"></span></p></ul></pre></div>
       <div id="EnumWindow"><h4><span class="Blue">string </span><SPAN class="Purple" lang="EN-US">EnumWindow(</SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">ParentWindowHandle<span class="Purple">,</span></span> string</span> <span class="Green">WindowTitle</span><span class="Green"></span><span class="Purple">, <span class="Blue">string </span><span class="Green">ClassName</span>, <span class="Blue">integer <span class="Green">Filter</span></span>)</span></SPAN></h4>
-      <pre class="prettyprint"><li><span class="Black">Get the handles of all matched windows by the parent winow, class name or title.</span><li><span class="Red">Attention: ParentWindowHandle must be exact.</span>
+      <pre class="prettyprint"><li><span class="Black">Get the handles of all matched windows by the parent window, class name or title.</span><li><span class="Red">Attention: ParentWindowHandle must be exact.</span>
 <ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">ParentWindowHandle</span></span> <span class="Blue">(integer)</span>: the parent window's handle. Exact matching.<span class="Bold"><span class="Green"> 
 <span class="Bold"><span class="Green">WindowTile</span></span> <span class="Blue">(string)</span>: window title, which can be empty. Fuzzy matching.<span class="Bold"><span class="Green">
 ClassName</span></span> <span class="Blue">(string)</span>: the class name, which can be empty. Fuzzy matching.
 <span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green">Filter</span></span> <span class="Blue">(integer)</span>: searching policy. 1 = match title; 2 = match class name; 
-4 = match the child winows; 8 = match top windows; 16 = math visible windows.
+4 = match the child windows; 8 = match top windows; 16 = match visible windows.
 The value can be summed up for multiple polices such as 1+4+8.</p><li><span class="Bold"> Return value:</span> 
 The handles of all matched windows as a string: &quot;handle1,handle2,handle3&quot;.
 </li><li class="Bold"> Example (VB Script):</li>
@@ -1166,12 +1174,12 @@ The process IDs of all matched process as a string, like &quot;PID1,PID2,PID3&qu
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyPIDList = MyQuarkAI.EnumProcess(&quot;ProcessName.exe&quot;)<span class="Orange"></span></p></ul></pre></div>
       <div id="EnumProcessByProcess"><h4><span class="Blue">string </span><SPAN class="Purple" lang="EN-US">EnumWindowByProcess(</SPAN><SPAN lang="EN-US"><span class="Blue">string <span class="Green">ProcessName<span class="Purple">,</span></span> string</span> <span class="Green">WindowTitle</span><span class="Green"></span><span class="Purple">, <span class="Blue">string </span><span class="Green">ClassName</span>, <span class="Blue">integer <span class="Green">Filter</span></span>)</span></SPAN></h4>
-      <pre class="prettyprint"><li><span class="Black">This Get the handles of all matched windows.</span><li><span class="Red">Attention: ProcessName must be exact.</span>
+      <pre class="prettyprint"><li><span class="Black">Get the handles of all matched windows.</span><li><span class="Red">Attention: ProcessName must be exact.</span>
 <ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">ProcessName</span></span> <span class="Blue">(string)</span>: the process name. Exact matching.<span class="Bold"><span class="Green"> 
 <span class="Bold"><span class="Green">WindowTile</span></span> <span class="Blue">(string)</span>: window title, which can be empty. Fuzzy matching.<span class="Bold"><span class="Green">
 ClassName</span></span> <span class="Blue">(string)</span>: the class name, which can be empty. Fuzzy matching.
 <span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green">Filter</span></span> <span class="Blue">(integer)</span>: searching policy. 1 = match title; 2 = match class name; 
-4 = match the first process; 8 = match top windows; 16 = visible windows.
+4 = match the first process; 8 = match top windows; 16 = match visible windows.
 The value can be summed up for multiple polices such as 1+4+8.</p><li><span class="Bold"> Return value:</span> 
 The handles of all matched windows as a string: &quot;handle1,handle2,handle3&quot;.
 </li><li class="Bold"> Example (VB Script):</li>
@@ -1184,8 +1192,8 @@ WindowHandle</span></span> <span class="Blue">(integer)</span>: </span>the handl
 <span class="Green">Flag</span></span> <span class="Blue">(integer)</span>: </span>searching policy. 0 = get the handle of the parent window;
 1 = get the handle of the first child window; 
 2 = get the handle of the first window;
-3 = get handle of the last window; 4 = get handle of the next window; 
-5 = get handle of the previous window; 6 = get handle of the owner window; 
+3 = get the handle of the last window; 4 = get the handle of the next window; 
+5 = get the handle of the previous window; 6 = get the handle of the owner window; 
 7 = get the handle of the top window.</li><li><span class="Bold"> Return value:</span> 
 The handle of the matched window as an integer.
 </li><li class="Bold"> Example (VB Script):</li>
@@ -1201,7 +1209,7 @@ The title of the matched window as a string.
 <ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the given window. Exact matching.</p><li><span class="Bold"> Return value:</span> 
 The class name of the matched window as a string.
 </li><li class="Bold"> Example (VB Script):</li>
-<p>MyTitle = MyQuarkAI.GetWindowClass(WindowHandle)</p></ul></pre></div>
+<p>MyClass = MyQuarkAI.GetWindowClass(WindowHandle)</p></ul></pre></div>
       <div id="GetWindowRect"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">GetWindowRect<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">WindowHandle<span class="Purple">,</span></span> integer</span> <span class="Green">X1</span><span class="Green"></span>, <span class="Blue">integer </span><span class="Green">Y1</span>,<span class="Blue"> integer</span> <span class="Green">X2</span><span class="Green"></span>, <span class="Blue">integer </span><span class="Green">Y2</span>)</SPAN></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black">This function gets the coordintes of the vertices of the matched window.</span><span class="Red"></span>
 <span class="Red">Attention: the coordinates are stored in the inputs X1, X2, Y1, Y2.</span><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the given window. Exact matching.
@@ -1215,13 +1223,13 @@ The class name of the matched window as a string.
 Y1 = 0
 X2 = 0
 Y2 = 0
-MyResult = MyQuarkAI.GetWindowClient(WindowHandle,X1,Y1,X2,Y2)<span class="Orange"></span></p></ul></pre></div>
+MyResult = MyQuarkAI.GetWindowRect(WindowHandle,X1,Y1,X2,Y2)<span class="Orange"></span></p></ul></pre></div>
 
 <div id="GetClientRect"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">GetClientRect<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">WindowHandle,</span> integer</span> <span class="Green">X1</span><span class="Green"></span>, <span class="Blue">integer </span><span class="Green">Y1</span>,<span class="Blue"> integer</span> <span class="Green">X2</span><span class="Green"></span>, <span class="Blue">integer </span><span class="Green">Y2</span>)</SPAN></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black">Get the coordintes of the vertices of the client region of the window.</span><span class="Red"></span>
 <span class="Red">Attention: the coordinates are stored in the inputs X1, Y1, X2, Y2, the client
 region is the region of the window minus the rigion of the frame of the window, 
-which is usually slight smaller than the total window area.</span>
+which is usually slightly smaller than the total window area.</span>
 <ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the given window. Exact matching.
 <span class="Green">X1</span><span class="Blue"> (integer)</span>: X coordinate of the left top point.
 <span class="Green"> Y1 </span><span class="Blue">(integer)</span>: Y coordinate of the left top point.
@@ -1241,7 +1249,7 @@ MyResult = MyQuarkAI.GetClientRect(WindowHandle,X1,Y1,X2,Y2)<span class="Orange"
       <pre class="prettyprint"><li><span class="Black">Get the size of the client region of the window.</span><span class="Red"></span>
 <span class="Red">Attention: the width and height are stored in the inputs Width and Height, the client
 region is the region of the window minus the rigion of the frame of the window, 
-which is usually slight smaller than the total window area.</span>
+which is usually slightly smaller than the total window area.</span>
 <ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the given window. Exact matching.
 <span class="Green">Width</span><span class="Blue"> (integer)</span>: the width of the client region.
 <span class="Green"> Height </span><span class="Blue">(integer)</span>: the height of the client region.<span class="Green"></span></p>
@@ -1250,7 +1258,7 @@ which is usually slight smaller than the total window area.</span>
 </li><li class="Bold"> Example (VB Script):</li>
 <p>Width = 0
 Height = 0
-MyResult = MyQuarkAI.GetClientRect(WindowHandle, Width, Height)<span class="Orange"></span></p></ul></pre></div>
+MyResult = MyQuarkAI.GetClientSize(WindowHandle, Width, Height)<span class="Orange"></span></p></ul></pre></div>
 
 <div id="GetWindowState"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">GetWindowState<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">WindowHandle</span></span>, <span class="Blue">integer </span><span class="Green">Option</span>)</SPAN></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black">This function gets the state of the window.</span><span class="Red"></span><span class="Red"></span>
@@ -1301,11 +1309,11 @@ The window handle as an integer.
  <span class="Green">Y</span> <span class="Blue">(integer)</span>: Y coordinate.<span class="Bold"></span></p></ul><ul><li><span class="Bold"> Return value:</span></li>The window handle as an integer.
 
 <li class="Bold"> Example (VB Script):</li>
-<p>MyHandle = MyQuarkAI.<SPAN lang="EN-US">GetMousePointWindow(200, 300)</SPAN><span class="Orange"></span></p></ul></pre></div>
+<p>MyHandle = MyQuarkAI.<SPAN lang="EN-US">GetPointWindow(200, 300)</SPAN><span class="Orange"></span></p></ul></pre></div>
 <div id="GetSpecialWindow"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">GetSpecialWindow<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">Option</span></span><span class="Blue"><span class="Green"></span></span>)</SPAN></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black">This function gets the handle of the matched window.</span><span class="Red"></span><span class="Red"></span><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> Option</span></span> <span class="Blue">(integer)</span>: 0 = desktop window; 1 = taskbar window.<span class="Bold"></span></p></ul><ul><li><span class="Bold"> Return value:</span></li>The window handle as an integer.
     <li class="Bold"> Example (VB Script):</li>
-<p>MyHandle = MyQuarkAI.<SPAN lang="EN-US">GetMousePointWindow(200, 300)</SPAN></p></ul></pre></div>
+<p>MyHandle = MyQuarkAI.<SPAN lang="EN-US">GetSpecialWindow(1)</SPAN></p></ul></pre></div>
       <div id="WindowControlFunctions0"><h3><span class="Bold">Window control functions (without binding):</span> </h3>
 <span class="Bold">The window control functions (without binding) are used to move the window, set the window states, set the window size, send strings to the window, etc. These functions can be used without binding the window.</span></div>
 <div id="MoveWindow"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">MoveWindow<SPAN class="Purple" lang="EN-US">(<SPAN lang="EN-US"><span class="Blue">integer <span class="Green">WindowHandle</span></span></SPAN>, </SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">X</span></span>, <span class="Blue">integer <span class="Green">Y</span></span>)</SPAN></SPAN></h4>
@@ -1321,9 +1329,9 @@ The window handle as an integer.
 <li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.<SPAN lang="EN-US">SetWindowSize(MyHandle, 810, 620)</SPAN><span class="Orange"></span></p></ul></pre></div>
 <div id="SetClientSize"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">SetClientSize<SPAN class="Purple" lang="EN-US">(<SPAN lang="EN-US"><span class="Blue">integer <span class="Green">WindowHandle</span></span></SPAN>, </SPAN><SPAN lang="EN-US"><span class="Blue">integer <span class="Green">X</span></span>, <span class="Blue">integer <span class="Green">Y</span></span>)</SPAN></SPAN></h4>
-      <pre class="prettyprint"><li><span class="Black";>This function sets the size of the Client region.</span><span class="Red"></span><span class="Red">
+      <pre class="prettyprint"><li><span class="Black";>This function sets the size of the client region.</span><span class="Red"></span><span class="Red">
 Attention: the client region is the region of the window minus the rigion of the
-frame of the window, which is usually slight smaller than the total window area.</span><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the window, 0 = the desktop.   
+frame of the window, which is usually slightly smaller than the total window area.</span><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the window, 0 = the desktop.   
  <span class="Bold"><span class="Green">X</span></span> <span class="Blue">(integer)</span>: width of the window.    <span class="Bold"><span class="Green"></span></span>
  <span class="Green">Y</span> <span class="Blue">(integer)</span>: height of the window.<span class="Bold"></span></p></ul><ul><li><span class="Bold"> Return value:</span></li>0 = failed; 1 = succeed.
 <li class="Bold"> Example (VB Script):</li>
@@ -1355,7 +1363,7 @@ frame of the window, which is usually slight smaller than the total window area.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SetWindowText(MyHandle, &quot;Mytitle&quot;)</p></ul></pre></div>
 <div id="SetWindowText"><h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">SendString<SPAN class="Purple" lang="EN-US">(<SPAN lang="EN-US"><span class="Blue">integer <span class="Green">Handle</span></span></SPAN>, </SPAN><SPAN lang="EN-US"><span class="Blue">string</span><span class="Blue"> <span class="Green">String</span></span>)</SPAN></SPAN></h4>
-      <pre class="prettyprint"><li><span class="Black";>This function sends a string to the target ojbect with the target handle.</span><span class="Red"></span><span class="Red">
+      <pre class="prettyprint"><li><span class="Black";>This function sends a string to the target object with the target handle.</span><span class="Red"></span><span class="Red">
 Attention: the handle that receive strings is usually not the handle of the window,
 but the handle of the text area.</span><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Bold"><span class="Green"> WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the object, 0 = the desktop.   
  <span class="Bold"><span class="Green">String</span></span> <span class="Blue">(string)</span>: the string to input.    <span class="Bold"><span class="Green"></span></span></p></ul><ul><li><span class="Bold"> Return value:</span></li>0 = failed; 1 = succeed.
@@ -1376,21 +1384,21 @@ MyResult = MyQuarkAI.SendPaste(MyHandle)</p></ul></pre></div>
 
 <div id="SendKeyPress"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyPress(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key press to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SendKeyPress(MyWindowHandle,65)</p></ul></pre></div>
 
 <div id="SendKeyPressChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyPressChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key press to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
-<p>MyResult = MyQuarkAI.SendKeyPress(MyWindowHandle,&quot;a&quot;)</p></ul></pre></div>
+<p>MyResult = MyQuarkAI.SendKeyPressChar(MyWindowHandle,&quot;a&quot;)</p></ul></pre></div>
 
 <div id="SendKeyDown"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyDown(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key down to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SendKeyDown(MyWindowHandle,65)
@@ -1399,7 +1407,7 @@ MyResult = MyQuarkAI.SendKeyUp(MyWindowHandle,65)</p></ul></pre></div>
 
 <div id="SendKeyDownChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyDownChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key down to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SendKeyDownChar(MyWindowHandle,&quot;a&quot;)
@@ -1408,7 +1416,7 @@ MyResult = MyQuarkAI.SendKeyUpChar(MyWindowHandle,&quot;a&quot;)</p></ul></pre><
 
 <div id="SendKeyUp"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyUp(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">integer</span> <span class="Green"> KeyCode</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key up to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example； &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCode</span></span> <span class="Blue">(integer)</span>: the key code, for example: &quot;a&quot;=65.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SendKeyDown(MyWindowHandle,65)
@@ -1417,7 +1425,7 @@ MyResult = MyQuarkAI.SendKeyUp(MyWindowHandle,65)</p></ul></pre></div>
 
 <div id="SendKeyUpChar"><h4><span class="Blue">integer</span><SPAN class="Purple" lang="EN-US"> SendKeyUpChar(</SPAN><SPAN lang="EN-US"><span class="Purple"><span class="Blue">integer</span> <span class="Green">WindowHandle</span>, <span class="Blue">string</span> <span class="Green"> KeyChar</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>This function sends a key up to the target window.</span><span class="Red"></span></li><ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">WindowHandle</span></span> <span class="Blue">(integer)</span>: the handle of the target window, 0 = the desktop.
-<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example； &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
+<span class="Bold"><span class="Green">KeyCHar</span></span> <span class="Blue">(string)</span>: the key char, for example: &quot;a&quot;.</p><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = succeed.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.SendKeyDownChar(MyWindowHandle,&quot;a&quot;)
@@ -1969,6 +1977,44 @@ Reference:<span class="Bold"><span class="Green"></span></span><span class="Bold
       <pre class="prettyprint"><li><span class="Black";>Send a wheel up.</span></li>  <ul><li><span class="Bold"> Return value:</span> 
 0 = failed; 1 = success. </li><li class="Bold"> Example (VB Script):</li>
 <p>MyResult = MyQuarkAI.WheelUp()</p></ul></pre></div>
+
+<div id="DeviceControlFunctions">
+  <h3><span class="Bold">Device control functions:</span></h3>
+<span class="Bold">These functions are used to control a QuarkAI devices, such as swtiches, different sensors, robots, etc. You can easily control the QuarkAI device through any computer that has internet access. The work follow is: Step 1, connect the QuarkAI device to the computer using a USB cable, then use function SetDevice to give the QuarkAI device a device name, a wifi name, a wifi password, and a CDKey, after this plug off the USB cable; Step 2, use function BindDevice to bind the QuarkAI device through the CDKey that usd in Step 1; Step 3, use function OperateDevice to control the device; Step 4, use function UnBindDevice to unbind the QuarkAI device when you no longer need to use.</span></div>
+<div id="SetDevice">
+  <h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">SetDevice<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">String <span class="Green">SetUpInformation</span></span>)</SPAN></SPAN></h4>
+      <pre class="prettyprint"><li><span class="Black">Connect the QuarkAI device to a computer through a USB cable then use this function to
+       set up the information such as WIFI, CDKey, device name, etc. When this is done, 
+       you can plug off the USB Cable.</span><span class="Red"></span><span class="Red"></span>
+<ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Green">SetUpInformation</span><span class="Blue">(String)</span>: the set-up information as a string.<span class="Bold"><span class="Green"></span></span></p><li><span class="Bold"> Return value:</span> 
+0 = failed; 1 = success. 
+</li>
+    <li class="Bold"> Example (VB Script):</li>
+<p>MyResult = MyQuarkAI.SetDevice(&quot;SSID=WifiName;Password=WifiKey;CDKey=1111111111111111&quot;)</p></ul></pre></div>
+<div id="BindDevice">
+  <h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">BindDevice<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">String <span class="Green">CDKey</span></span>)</SPAN></SPAN></h4>
+      <pre class="prettyprint"><li><span class="Black">Bind the device by a CDkey, which should be the same CDKey used in function SetDevice.</span>
+<ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Green">CDkey</span><span class="Blue">(String)</span>: the QuarkAI CDkey.<span class="Bold"><span class="Green"></span></span></p><li><span class="Bold"> Return value:</span> 
+0 = failed; 1 = success. 
+</li>
+    <li class="Bold"> Example (VB Script):</li>
+<p>MyResult = MyQuarkAI.BindDevice(&quot;1111111111111111&quot;)</p></ul></pre></div>
+<div id="OperateDevice">
+  <h4><span class="Blue">string </span><SPAN class="Purple" lang="EN-US">OperateDevice<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US"><span class="Blue">String <span class="Green">Command</span></span>)</SPAN></SPAN></h4>
+      <pre class="prettyprint"><li><span class="Black">Control the device that binded device.</span>
+<ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green"></span></span><span class="Green">Command</span><span class="Blue">(String)</span>: the control command.<span class="Bold"><span class="Green"></span></span></p><li><span class="Bold"> Return value:</span> 
+The result as a string. 
+</li>
+    <li class="Bold"> Example (VB Script):</li>
+<p>MyResult = MyQuarkAI.OperateDevice(&quot;LightOn&quot;)</p></ul></pre></div>
+
+<div id="UnBindDevice">
+  <h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">UnBindDevice<SPAN class="Purple" lang="EN-US">(</SPAN><SPAN lang="EN-US">)</SPAN></SPAN></h4>
+      <pre class="prettyprint"><li><span class="Black">Unbind the device, which should be called when you no longer need to use the device.</span><ul><li><span class="Bold"> Return value:</span> 
+0 = failed; 1 = success. 
+</li>
+    <li class="Bold"> Example (VB Script):</li>
+<p>MyResult = MyQuarkAI.UnBindDevice()</p></ul></pre></div>
 <div id="DeveloperFunctions1"><h3><span class="Bold">Devloper functions (without developer license):</span></h3>
 <span class="Bold">These functions are used to read data on the memory, find data on the memory, read assembly code, etc. To use developer functions, the user should be informed about the stuff and experienced enough. These functions can be used without a developer license.</span></div>
 
@@ -2071,6 +2117,13 @@ The result as a string, such as &quot;12 34 ab&quot;<SPAN lang="EN-US"></SPAN>.
 The result as a string, such as &quot;12 34 ab&quot;<SPAN lang="EN-US"></SPAN>.
 </li><li class="Bold"> Example (VB Script):</li>
 <p>MyData = MyQuarkAI.StringToData(&quot;QuarkAI&quot;)</p></ul></pre></div>
+<div id="DataToString">
+  <h4><span class="Blue">string</span><SPAN class="Purple" lang="EN-US"> DataToString(</SPAN><SPAN lang="EN-US"><span class="Blue">string</span> <span class="Green">Data</span><span class="Purple"><span class="Green"></span>)</span></SPAN></h4>
+      <pre class="prettyprint"><li><span class="Black";></span><span class="Black";>Transform binary data to a string.</span></li>     
+<ul><li class="Bold"> Inputs:</li><p><span class="Bold"><span class="Green">Data</span></span> <span class="Blue">(string)</span>: the binary data to transform.<span class="Green"></span><span class="Green"></span></p><li><span class="Bold"> Return value:</span> 
+The result as a string, such as &quot;1231&quot;<SPAN lang="EN-US"></SPAN>.
+</li><li class="Bold"> Example (VB Script):</li>
+<p>MyString = MyQuarkAI.DataToString(&quot;GHAA&quot;)</p></ul></pre></div>
 <div id="GetModuleBaseAddr">
   <h4><span class="Blue">integer </span><SPAN class="Purple" lang="EN-US">GetModuleBaseAddr(</SPAN><SPAN lang="EN-US"><span class="Blue">integer</span> <span class="Green">ProcessID</span><span class="Green"></span><span class="Purple">, <span class="Blue">string</span> <span class="Green">ModuleName</span>)</span></SPAN></h4>
       <pre class="prettyprint"><li><span class="Black";>Gets the module base address.</span></li>     
